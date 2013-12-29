@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>sci</artifactId>
+    <groupId>ds</groupId>
+    <version>1.0</version>
+	<relativePath>../pom.xml</relativePath>
+  </parent>
+  <groupId>ds.sci</groupId>
+  <artifactId>sci-ear</artifactId>
+  <version>1.0</version>
+  <name>sci-ear</name>
+  <packaging>ear</packaging>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+	
+	<dependency>
+	  <groupId>ds.sci</groupId>
+      <artifactId>sci-dao</artifactId>
+      <version>1.0</version>
+	  <scope>compile</scope>
+	  <type>jar</type>
+    </dependency>
+	
+	<dependency>
+      <groupId>ds.sci</groupId>
+      <artifactId>sci-model</artifactId>
+      <version>1.0</version>
+	  <scope>compile</scope>
+	  <type>jar</type>
+    </dependency>
+	
+    <dependency>
+      <groupId>ds.sci</groupId>
+      <artifactId>sci-business</artifactId>
+      <version>1.0</version>
+	  <scope>compile</scope>
+	  <type>jar</type>
+    </dependency>
+	
+    <dependency>
+	  <groupId>ds.sci</groupId>
+      <artifactId>sci-view</artifactId>
+      <version>1.0</version>
+	  <scope>compile</scope>
+      <type>war</type>
+    </dependency>
+	
+  </dependencies>
+  
+  <!-- 4. Specify the content of generated artifact. -->
+  <build>
+
+    <!-- 4.1. Specify the final name of the artifact. -->
+    <finalName>sci-ear</finalName>
+
+    <defaultGoal>package</defaultGoal>
+
+    <!-- 4.2. We don't want to filter for this module: "filters" section is empty. -->
+
+    <!-- 4.3. Specify the location of resources (for non-standard location). -->
+    <!-- Defailt is: ${project.build.outputDirectory} -->
+    <!-- The file: application.xml will be automatically generated. -->
+    <!-- 
+	<resources>
+      <resource>
+        <directory>${basedir}/src/META-INF</directory>
+        <targetPath>META-INF</targetPath>
+        <filtering>true</filtering> 
+		<includes>
+          <include>weblogic-application.xml</include>
+        </includes>
+      </resource>
+    </resources>
+	-->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+
+        <!-- 4.4. Specify used Java version. -->
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-ear-plugin</artifactId>
+        <configuration>
+
+          <!-- 4.5. Specify modules to include. -->
+          <modules>
+
+            <!-- 4.5.1. Include Java Module. -->
+            <javaModule>
+              <groupId>ds.sci</groupId>
+              <artifactId>sci-model</artifactId>
+              <!-- <version>1.0</version> -->
+			  <includeInApplicationXml>true</includeInApplicationXml>
+            </javaModule>
+
+            <javaModule>
+              <groupId>ds.sci</groupId>
+              <artifactId>sci-dao</artifactId>
+              <!-- <version>1.0</version> -->
+			  <includeInApplicationXml>true</includeInApplicationXml>
+            </javaModule>
+
+            <!-- 4.5.2. Include EJB Module. -->
+            <javaModule>
+              <groupId>ds.sci</groupId>
+              <artifactId>sci-business</artifactId>
+              <!-- <version>1.0</version> -->
+			  <includeInApplicationXml>true</includeInApplicationXml>
+            </javaModule>
+
+            <!-- 4.5.3. Include Web Application Module. -->
+            <webModule>
+              <groupId>ds.sci</groupId>
+              <artifactId>sci-view</artifactId>
+			  <contextRoot>/sci</contextRoot>
+              <!-- <version>1.0</version> -->
+            </webModule>
+
+            <!-- 4.5.4. Maven will also treat dependent 3-rd-party libraries as modules.
+                        You have to exclude them or redirect to "APP-INF/lib" directory. -->
+            <!-- 
+			<javaModule>
+              <groupId>antlr</groupId>
+              <artifactId>antlr</artifactId>
+              <bundleDir>APP-INF/lib</bundleDir>
+            </javaModule>
+            -->
+
+          </modules>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+  
+  
+</project>
