@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+		media="screen" />
+	<link href="resources/bootstrap/css/bootstrap-responsive.css"
+		rel="stylesheet" />
+	<title>Savings Balance</title>
+</h:head>
+<h:body>
+
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="brand" href="./index.xhtml">Savings Balance</a>
+				<ul class="nav">
+					<li class=""><a href="./index.xhtml">Home</a></li>
+					<li class="active"><a href="./getting-started.html">Cadastre-se</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div id="cabecalho" class="span12">
+				Teste <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+				<br /> <br />
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="container-fluid">
+
+			<div class="row-fluid">
+				<div class="span10 ">
+					<div id="conteudo" class="thumbnail">
+						<ui:insert name="corpo" />
+					</div>
+					<br />
+				</div>
+				<div class="span4">
+					<div class="thumbnail">
+						<div class="modal-header">
+							<h3>Carteiras</h3>
+						</div>
+						<div class="modal-body">
+							<h:panelGrid class="table" columns="2">
+								<h:outputText value="teste"/>
+								<h:outputText value="teste"/>
+								<h:outputText value="teste2"/>
+								<h:outputText value="teste2"/>
+								<h:outputText value="teste3"/>
+								<h:outputText value="teste3"/>
+							</h:panelGrid>
+						</div>
+					</div>
+					<br />
+					<div class="thumbnail">
+						<div class="modal-header">
+							<h3>Evolução</h3>
+						</div>
+						<div class="modal-body">
+							<h:graphicImage library="imagens" name="grafico.png" title="Evolução geral das carteiras" styleClass="img-rounded" width="250px"/> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br />
+	<div id="rodape" class="container thumbnail">
+		<center>Copyrigth 2013. Todos os direitos reservados. DSource</center>
+	</div>
+	<h:outputScript library="jquery/js" name="jquery-1.9.1.js" />
+	<h:outputScript library="bootstrap/js" name="bootstrap.js" />
+	<script>
+		$('#myTab a').click(function(e) {
+			e.preventDefault();
+			$(this).tab('show');
+		})
+	</script>
+</h:body>
+</html>

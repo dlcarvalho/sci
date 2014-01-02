@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="_templateLogin.xhtml">
+
+	<ui:define name="cadastro">
+		<h:panelGrid>
+			<form>
+				<p:watermark for="nomeCad" value="Nome" />
+				<h:inputText id="nomeCad" />
+				<p:watermark for="emailCad" value="Email" />
+				<h:inputText id="emailCad" />
+				<p:watermark for="senhaCad" value="Senha" />
+				<h:inputSecret id="senhaCad" />
+				<h:commandButton value="Cadastrar" class="btn" />
+			</form>
+		</h:panelGrid>
+	</ui:define>
+</ui:composition>
+</html>

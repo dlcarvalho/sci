@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="templates/_template.xhtml">
+	<ui:define name="corpo">
+		<h:form>
+			<h:panelGrid columns="2">
+
+				<h:outputLabel for="catProdId" value="Id:" />
+				<h:outputText id="catProdId"
+					value="#{categoriaProdutoBean.catProduto.id}" />
+
+				<h:outputLabel for="catProdDesc" value="Descrição:" />
+				<h:inputTextarea id="catProdDesc"
+					value="#{categoriaProdutoBean.catProduto.descricao}" />
+				<h:commandButton action="#{categoriaProdutoBean.salvar}" value="Cadastrar" />
+			</h:panelGrid>
+		</h:form>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+	</ui:define>
+</ui:composition>
+</html>

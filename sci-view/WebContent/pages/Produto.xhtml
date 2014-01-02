@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="corpo">
+		<div class="modal-header">
+			<h:panelGrid columns="3">
+				<h:outputLabel for="descricao" value="Descrição" />
+				<h:inputText id="descricao" />
+				<h:message for="descricao" />
+
+				<h:outputLabel for="categoria" value="Categoria" />
+				<h:selectOneMenu id="categoria" value="#{produtoBean.idProduto}">
+					<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
+					<f:selectItems value="#{categoriaProdutoBean.catProdutos}"
+						var="categoria" itemValue="#{categoria.id}"
+						itemLabel="#{categoria.descricao}" />
+				</h:selectOneMenu>
+				<h:message for="categoria" />
+
+				<h:outputLabel for="remuneracao" value="Remuneracao básica" />
+				<h:inputText id="remuneracao" />
+				<h:message for="remuneracao" />
+			</h:panelGrid>
+		</div>
+		<div class="tabbable tabs-left">
+			<ul class="nav nav-tabs" id="myTab">
+				<li class="active"><a href="#Indexadores">Indexadores</a></li>
+				<li><a href="#Tributacao">Tributação</a></li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane" id="Indexadores">
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				sdfg
+				</div>
+				<div class="tab-pane" id="Tributacao"> dfgsdf</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<h:commandButton class="btn" value="Salvar" />
+		</div>
+	</ui:define>
+</ui:composition>
+
+</html>
