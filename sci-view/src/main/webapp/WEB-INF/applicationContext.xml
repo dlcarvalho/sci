@@ -13,8 +13,8 @@
 		http:/www.springframework.org/schema/jee
 		http:/www.springframework.org/schema/jee/spring-jee-4.0.xsd">
 
-
-	<context:component-scan base-package="br.com" />
+<context:annotation-config/>
+	<context:component-scan base-package="br.com.sb.sci" />
 
 	<bean
 		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />

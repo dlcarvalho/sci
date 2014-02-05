@@ -12,7 +12,7 @@
 		</locale-config>
 	</application>
 
-	<!-- <lifecycle>
+	<lifecycle>
 		<phase-listener>br.com.ds.sci.listener.CicloDeVidaListener</phase-listener>
-	</lifecycle> -->
+	</lifecycle>
 </faces-config>

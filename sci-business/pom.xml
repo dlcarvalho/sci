@@ -24,6 +24,13 @@
       <scope>test</scope>
     </dependency>
 	
+	<dependency>
+		<groupId>javax.inject</groupId>
+		<artifactId>javax.inject</artifactId>
+		<version>1</version>
+		<scope>compile</scope>
+	</dependency>	
+	
 	<!-- 3.3. Specify dependencies on internal libraries. -->
 	<dependency>
 		<groupId>ds.sci</groupId>
