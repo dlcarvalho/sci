@@ -86,15 +86,16 @@
 		<groupId>ds.sci</groupId>
 		<artifactId>sci-model</artifactId>
 		<version>1.0</version>
-		<scope>provided</scope>
+		<scope>compile</scope>
 	</dependency>
 
 	<dependency>
 		<groupId>ds.sci</groupId>
 		<artifactId>sci-business</artifactId>
 		<version>1.0</version>
-		<scope>provided</scope>
+		<scope>compile</scope>
 	</dependency>
+	
   </dependencies>
   
 	<!-- 4. Specify the content of generated artifact. -->

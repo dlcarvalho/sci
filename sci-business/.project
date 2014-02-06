@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
   <name>sci-business</name>
   <comment>NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
   <projects>
-    <project>sci-dao</project>
     <project>sci-model</project>
+    <project>sci-dao</project>
   </projects>
   <buildSpec>
     <buildCommand>

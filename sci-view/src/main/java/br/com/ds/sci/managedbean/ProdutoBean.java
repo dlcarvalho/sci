@@ -4,19 +4,18 @@ import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.ds.sci.dao.DAO;
 import br.com.ds.sci.entity.Produto;
-import br.com.sb.sci.dao.DAO;
 
-@Named
-@RequestScoped
+@Named @RequestScoped
 public class ProdutoBean {
 
 	@Inject
 	DAO<Produto> dao;
-
+	
 	private Produto produto = new Produto();
 	private Long idProduto;
-
+	
 	public Produto getProduto() {
 		return produto;
 	}
@@ -32,5 +31,7 @@ public class ProdutoBean {
 	public void setIdProduto(Long idProduto) {
 		this.idProduto = idProduto;
 	}
-
+	
+	
+	
 }

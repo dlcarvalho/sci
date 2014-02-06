@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<project name="FastDeploy" basedir=".">
+
+	<property name="dir.project" value="D:\work\SCI\sci" />
+	<property name="ear.name" value="sci-ear" />
+	<property name="view.name" value="sci-view" />
+	<property name="dir.project.ear" value="${dir.project}\${ear.name}" />
+	<property name="dir.project.view" value="${dir.project}\${view.name}" />
+	<property name="target.ear" value="${dir.project.ear}\target\${ear.name}" />
+	<property name="target.view" value="${dir.project.view}\target\${view.name}" />
+
+	<property name="dir.server" value="D:\work\Servers\jboss-as-7.1.1.Final" />
+	<property name="server.bin" value="${dir.server}\bin" />
+	<property name="deploy.standalone" value="${dir.server}\standalone\deployments" />
+	<property name="sci.version" value="1.0" />
+
+
+	<target name="clean">
+		<exec executable="cmd.exe" dir="${dir.project}">
+			<arg value="/c" />
+			<arg value="mvn clean" />
+		</exec>
+	</target>
+
+	<target name="install">
+		<antcall target="clean" />
+		<exec executable="cmd.exe" dir="${dir.project}">
+			<arg value="/c" />
+			<arg value="mvn install -Dmaven.test.skip=true -o" />
+		</exec>
+	</target>
+
+	<target name="stop_standalone-server">
+		<exec executable="cmd.exe" dir="${server.bin}">
+			<arg value="/c" />
+			<arg value="shutdown.bat" />
+		</exec>
+	</target>
+
+	<target name="start_standalone-server">
+		<exec executable="cmd.exe" dir="${server.bin}">
+			<arg value="/c" />
+			<arg value="standalone.bat" />
+		</exec>
+	</target>
+
+	<target name="delete_webapp" depends="stop_standalone-server">
+		<delete dir="${deploy.standalone}/${ear-name}" failonerror="true" verbose="true" />
+	</target>
+
+	<target name="deploy_webapp" depends="delete_webapp">
+		<delete dir="${deploy.standalone}/${ear.name}.ear" />
+		<copydir dest="${deploy.standalone}/${ear.name}.ear" src="${target.ear}" forceoverwrite="true" />
+		<delete file="${deploy.standalone}/${ear.name}.ear/${view.name}-${myproject.version}.war" />
+		<copydir dest="${deploy.standalone}/${ear.name}.ear/${view.name}-${myproject.version}.war" src="${target.view}" forceoverwrite="true" />
+	</target>
+
+
+	<target name="constroi_start">
+		<antcall target="install" />
+		<antcall target="deploy_webapp" />
+		<antcall target="start_standalone-server" />
+	</target>
+
+	<target name="hotdeploy" depends="mvn-install-view">
+		<copy todir="${dir.deploy.war}/layout">
+			<fileset dir="${target.view}/layout" />
+		</copy>
+	</target>
+
+	<target name="mvn-install-view">
+		<!-- <delete file="${var.logfile}" /> -->
+		<exec executable="cmd.exe" dir="${dir.project.view}">
+			<arg value="/c" />
+			<arg value="mvn clean install -Dmaven.test.skip=true -o" />
+		</exec>
+	</target>
+
+</project>

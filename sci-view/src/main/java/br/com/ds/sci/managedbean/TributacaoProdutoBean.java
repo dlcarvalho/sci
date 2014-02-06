@@ -2,7 +2,7 @@ package br.com.ds.sci.managedbean;
 
 import java.util.List;
 
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import org.primefaces.event.RowEditEvent;
@@ -14,47 +14,48 @@ import br.com.ds.sci.entity.Tributo;
 @ViewScoped
 public class TributacaoProdutoBean {
 
-	private TributacaoProduto tributacaoProduto = new TributacaoProduto();
-	private List<TributacaoProduto> trinbutacoesProduto;
+	private TributacaoProduto TributacaoProduto = new TributacaoProduto();
+	private List<TributacaoProduto> TributacoesProduto;
 
 	public TributacaoProduto getTributacaoProduto() {
-		return tributacaoProduto;
+		return TributacaoProduto;
 	}
 
 	public void setTributacaoProduto(TributacaoProduto TributacaoProduto) {
-		this.tributacaoProduto = TributacaoProduto;
+		this.TributacaoProduto = TributacaoProduto;
 	}
 
-	public List<TributacaoProduto> getProdutosTributaveis(){
+	public List<TributacaoProduto> getProdutosTributaveis() {
 
-		
 		TributacaoProduto p = new TributacaoProduto();
 		p.setTributo(new Tributo());
-		trinbutacoesProduto.add(p);
-		
-		return trinbutacoesProduto;
+		TributacoesProduto.add(p);
+
+		return TributacoesProduto;
 	}
-	
+
 	public void onEdit(RowEditEvent event) {
-		
-		TributacaoProduto TributacaoProduto = (TributacaoProduto) event.getObject();
-        System.out.println("blé"+TributacaoProduto.getValor()); 
-        
-    } 
-	
+
+		TributacaoProduto TributacaoProduto = (TributacaoProduto) event
+				.getObject();
+		System.out.println("blé" + TributacaoProduto.getValor());
+
+	}
+
 	public void onCancel(RowEditEvent event) {
-		
-		TributacaoProduto TributacaoProduto = (TributacaoProduto) event.getObject();
-        System.out.println("blé"+TributacaoProduto.getValor()); 
-        
-    }
-	
-	public void atualizaListaTributacaoProduto(TributacaoProduto pt){
-		trinbutacoesProduto.add(pt);
-		
+
+		TributacaoProduto TributacaoProduto = (TributacaoProduto) event
+				.getObject();
+		System.out.println("blé" + TributacaoProduto.getValor());
+
+	}
+
+	public void atualizaListaTributacaoProduto(TributacaoProduto pt) {
+		TributacoesProduto.add(pt);
+
 		TributacaoProduto p = new TributacaoProduto();
 		p.setValor(55555);
-		trinbutacoesProduto.add(p);
-		
+		TributacoesProduto.add(p);
+
 	}
 }

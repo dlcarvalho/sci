@@ -132,11 +132,6 @@
         <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
 
         <!-- 4.3. Specify the location of the filter file (if filtering is used). -->
-        <!--
-		<filters>
-          <filter>target/filter.properties</filter>
-        </filters>
-		-->
 		
         <!-- 4.4. Specify the location of resources (for non-standard location). -->
         <!-- Defailt is: ${basedir}/src/main/resources -->

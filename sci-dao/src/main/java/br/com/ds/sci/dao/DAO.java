@@ -1,4 +1,4 @@
-package br.com.sb.sci.dao;
+package br.com.ds.sci.dao;
 
 import java.util.List;
 

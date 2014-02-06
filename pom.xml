@@ -70,11 +70,11 @@
   </dependencies>
   <!-- 3. List all children projects names (name is directory name as well). -->
   <modules>
+    <module>sci-ear</module>
     <module>sci-model</module>
     <module>sci-dao</module>
     <module>sci-business</module>
     <module>sci-view</module>
-    <module>sci-ear</module>
   </modules>
   
   <build>
